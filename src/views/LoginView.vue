@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -15,12 +15,7 @@ const handleSubmit = async () => {
     await authStore.login(email.value, password.value)
     router.push('/profile')
   } catch (error: any) {
-    errors.value = []
-    if (error.response?.status === 422) {
-      errors.value = Object.values(error.response.data.errors).flat()
-    } else {
-      errors.value = ['登录失败，请检查网络连接']
-    }
+    errors.value = ['登录失败，请检查网络连接']
   }
 }
 </script>
