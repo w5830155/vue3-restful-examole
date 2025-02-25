@@ -26,5 +26,13 @@ export default defineConfig(({ mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://dev.178778.xyz',
+          changeOrigin: true
+        }
+      }
+    }
   }
 })
