@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
-    server: {
+server: {
       proxy: {
         '/api': {
           target: 'https://dev.178778.xyz',
